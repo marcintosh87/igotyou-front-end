@@ -1,7 +1,7 @@
 import React from "react";
 import GratitudeCard from "./GratitudeCard";
 
-export default function GratitudeWall({ users }) {
+export default function GratitudeWall({ users, patchGrat }) {
   return (
     <>
       {users.map((each) => {
@@ -13,6 +13,8 @@ export default function GratitudeWall({ users }) {
               image={each.profile_url}
               comment={each.gposts.map((c) => c.comment)}
               likes={each.gposts.map((c) => c.likes)}
+              gid={each.gposts.map((id) => id.id)}
+              patchGrat={patchGrat}
             />
           );
         }

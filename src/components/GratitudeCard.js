@@ -8,42 +8,20 @@ export default function GratitudeCard({
   image = profileImg,
   comment,
   likes,
+  patchGrat,
+  gid,
 }) {
   const [newLike, setNewLike] = useState(parseInt(likes));
   const [formData, setFormData] = useState({
-    likes: newLike + 1,
+    id: gid,
+    likes: parseInt(likes) + 1,
   });
 
-  const patchGrat = (gratD) => {
-    fetch(`http://localhost:9292/gratitude/6`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...gratD, likes: newLike }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setFormData(
-          gratD.map((p) => {
-            if (gratD.id === data.id) {
-              return data;
-            } else {
-              return p;
-            }
-          })
-        );
-      });
-  };
   const handleChange = (e) => {
-    setNewLike(newLike + 1);
-    setFormData({ ...formData, newLike });
     patchGrat(formData);
+    setNewLike(newLike + 1);
   };
-  //   const handleChange = (e) => {
-  //     console.log(e.target);
-  //   };
+
   return (
     <div>
       <Container className="py-2">
@@ -58,12 +36,7 @@ export default function GratitudeCard({
                   alt="B.Lopez"
                 />
                 <div className="card-body">
-                  <p
-                    className="card-text"
-                    onClick={handleChange}
-                    value={newLike}
-                    name="likes"
-                  >
+                  <p className="card-text" onClick={handleChange}>
                     {newLike <= 0 ? (
                       <Heart color="red" size={20} />
                     ) : (

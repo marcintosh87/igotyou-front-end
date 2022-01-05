@@ -68,12 +68,43 @@ export default function MainContent() {
         setGrat([newgrat, ...grat]);
       });
   };
+
+  // patch likes
+
+  const patchGrat = (gratD) => {
+    fetch(`http://localhost:9292/gratitude/${gratD.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...gratD, likes: gratD.likes }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setGrat(
+          gratD.map((p) => {
+            if (gratD.id === data.id) {
+              return data;
+            } else {
+              return p;
+            }
+          })
+        );
+      });
+  };
   return (
     <div>
       <Routes>
         <Route
           path="/"
-          element={<GratitudeWall users={users} gratData={gratData} />}
+          element={
+            <GratitudeWall
+              users={users}
+              gratData={gratData}
+              patchGrat={patchGrat}
+            />
+          }
         />
         <Route path="/DC" element={<DCHelpWall users={users} />} />
         <Route
