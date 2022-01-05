@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+.App {
+  text-align: center;
+}
+@media only screen and (min-width: 1245px) {
+  .hero-background-image {
+    background-image: url("./img/HeroMatureCouple.jpg");
+
+    height: 500px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .hero-background-image {
+    background-image: url("./img/HeroMatureCouple.jpg");
+
+    height: 400px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-background-image {
+    background-image: url("./img/HeroMatureCouple.jpg");
+
+    height: 150px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+.got-you-btn {
+  background-color: #e8711c;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.got-you-btn:hover {
+  background-color: #d46616;
+  color: white;
+}
+
+.center-nav-link {
+  color: #e8711c;
+}
+
+.center-nav-link:hover {
+  color: #e8711c;
+  background-color: white;
+}
+
+.gratitude-img {
+  width: 200px;
+  height: auto;
+}
+
+.forms h1 {
+  color: #e8711c;
+  padding-bottom: 40px;
+  font-weight: bold;
+}
