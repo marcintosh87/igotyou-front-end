@@ -17,9 +17,10 @@ export default function GratitudeCard({
     likes: parseInt(likes) + 1,
   });
 
-  const handleChange = (e) => {
-    patchGrat(formData);
+  const handleChange = () => {
     setNewLike(newLike + 1);
+
+    patchGrat(formData);
   };
 
   return (
