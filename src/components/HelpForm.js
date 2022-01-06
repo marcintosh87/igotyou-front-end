@@ -38,6 +38,10 @@ export default function HelpForm({ postUser, postHelp }) {
       city: "",
       profile_url: "",
     });
+    setFormDataHelp({
+      title: "",
+      h_request: "",
+    });
   };
 
   return (
