@@ -30,6 +30,14 @@ export default function HelpForm({ postUser, postHelp }) {
     e.preventDefault();
     postUser(formData);
     postHelp(formDataHelp);
+    setFormData({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      city: "",
+      profile_url: "",
+    });
   };
 
   return (
